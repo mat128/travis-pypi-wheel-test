@@ -1,0 +1,19 @@
+sudo: false
+language: python
+python:
+  - "2.7"
+# command to install dependencies
+install:
+    - "pip install -r requirements.txt"
+    - "pip install -r test_requirements.txt"
+# command to run tests
+script: nosetests
+
+deploy:
+    provider: pypi
+    user: abcd
+    password:
+        secure: HomMdIqoLbQ7nB8jxYxOU+Zj3ZSu5IrAw1MMBC64tMGgFlo+26veImQFrzAXXy2EpLAANQM6aAea/F/FV5B4CKMpzJ5/Wj9z28lOkaxPZ3phx4w7xpxt7CvAWpzMti9Ni9B7QOLpuj4qYHuCJKHR2tIzb+TswXqmLTieQHscLRw=
+    distributions: sdist bdist_wheel
+    on:
+        tags: true
